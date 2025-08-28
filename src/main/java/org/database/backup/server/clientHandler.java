@@ -20,10 +20,9 @@ public class clientHandler implements Runnable {
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))
         ){
 
+            while(clientSocket.isConnected()) {
             String read = in.readLine();
-            System.out.println(read);
-
-            out.println("Hello from server");
+            System.out.println(read);}
 
         } catch (Exception e) {
             throw new RuntimeException(e);
