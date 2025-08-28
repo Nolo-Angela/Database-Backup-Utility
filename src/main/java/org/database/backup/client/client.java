@@ -17,8 +17,16 @@ public class client {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         ){
 
-                listenThread(in);
-                sendThread(out);
+            listenThread(in);
+            Scanner scanner = new Scanner(System.in);
+
+            while(true) {
+                System.out.println("Enter command: ");
+                String command = scanner.nextLine();
+
+                 out.println(command);
+               //  out.flush();
+            }
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -45,6 +53,7 @@ public class client {
     }
 
     private static void sendThread(PrintWriter out) {
+        System.out.println("Enter command: ");
         Scanner scanner = new Scanner(System.in);
 
         Thread send = new Thread(() -> {
@@ -62,4 +71,5 @@ public class client {
         send.start();
 
     }
+
 }
