@@ -21,7 +21,7 @@ public class Sever {
         System.out.println("Server started");
 
         Thread serverThread = new Thread(()-> {
-           // while (true) {
+            while (true) {
                 try{
                     Socket socket = serverSocket.accept();
                     System.out.println("Client connected: " + socket.getInetAddress());
@@ -31,7 +31,7 @@ public class Sever {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-           // }
+            }
         });
         serverThread.start();
     }
